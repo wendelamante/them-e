@@ -1,0 +1,124 @@
+
+<div class="aus_form_container">
+   <h1 class="home-section--title">{{ section.settings.heading }}</h1>
+    <div class="custom-html--container">
+        <div class="aus_form_left">
+            <div class="aus_form_content">
+                {{ section.settings.content }}
+            </div>
+            <div class="aus_form_images">
+                {% for block in section.blocks %}
+                    <div class="aus_block_img">
+                        <img src="{{ block.settings.block_img | img_url: 'master' }}" alt="" class="img_block">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="aus_form_right">
+            {{ section.settings.form_liquid }}
+        </div>
+    </div>
+</div>
+
+<style>
+  img.aus_banner_img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+  .aus_form_left {
+    width: 50%;
+}
+
+.aus_form_right {
+    width: 50%;
+    float: left;
+}
+
+.aus_block_img {
+    width: 33.33%;
+}
+
+img.img_block {
+    width: 100%;
+}
+
+.aus_form_images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aus_block_img {
+    flex: 1 0 33.33%;
+}
+
+.aus_block_img {
+    padding: 5px;
+}
+.aus_form_container .custom-html--container {
+    display: flex;
+}
+  .aus_form_content {
+    font-size: 18px !important;
+}
+@media(max-width:760px){
+  .aus_form_container .custom-html--container {
+    flex-direction: column;
+}
+
+.aus_form_left {
+    width: 100%;
+}
+
+.aus_form_right {
+    width: 100%;
+}
+.aus_form_content {
+    text-align:center;
+}
+}
+</style>
+
+{% schema %}
+{
+   "name": "Qouting Form",
+  "settings": [
+    {
+    "type": "text",
+    "id": "heading",
+    "label": "Heading"
+  },
+  {
+    "type": "richtext",
+    "id": "content",
+    "label": "Content"
+  },
+  {
+    "type": "liquid",
+    "id": "form_liquid",
+    "label": "Form Liquid Code"
+  }
+  ],
+  "presets": [
+    {
+        "category": "Page",
+        "name":"Qouting Form"
+    }
+  ],
+ "max_blocks": 6,
+ "blocks":[
+    {
+       "type": "image_picker",
+      "name": "Image",
+     "settings": [
+       {
+        "type": "image_picker",
+        "id": "block_img",
+        "label": "Select Image"
+       }
+     ]
+    }
+ ]
+}
+{% endschema %}

@@ -1,0 +1,25 @@
+<div class="aus_banner">
+    <div class="aus_banner_image">
+        <img src="{{ section.settings.banner_image | img_url: 'master' }}" alt="" class="aus_banner_img">
+    </div>
+</div>
+
+{% schema %}
+{
+   "name": "Qouting Form Banner Image",
+  "settings": [
+   {
+    "type": "image_picker",
+    "id": "banner_image",
+    "label": "Bannner Image"
+   }
+  ],
+  "presets": [
+    {
+        "category": "Page",
+        "name":"Qouting Form Banner Image"
+    }
+  ]
+
+}
+{% endschema %}
